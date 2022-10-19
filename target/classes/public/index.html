@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+</head>
+  <body>
+
+  <h1>Please enter a message</h1>
+
+  <div class="input-group mb-3">
+    <input id="cadena" type="text" class="form-control" placeholder="Enter the message" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button onclick="loadRequest()" class="btn btn-outline-secondary" type="button">Send</button>
+    </div>
+  </div>
+  <div id="responseData">
+
+  </div>
+  <script type="text/javascript" src="js/App.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </body>
+
+</html>
