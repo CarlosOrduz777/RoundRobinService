@@ -1,6 +1,6 @@
+package com.eci.round;
 
-
-import connection.HttpConnection;
+import com.eci.round.connection.HttpConnection;
 
 import static spark.Spark.*;
 

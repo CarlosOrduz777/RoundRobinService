@@ -1,4 +1,6 @@
-package connection;
+package com.eci.round.connection;
+
+import com.eci.round.loadBalance.RoundRobinLoadBalancer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,15 +10,23 @@ import java.net.URL;
 
 public class HttpConnection {
     private static final String USER_AGENT = "Mozilla/5.0";
+
+    RoundRobinLoadBalancer roundRobin;
+    public HttpConnection(){
+        roundRobin = new RoundRobinLoadBalancer();
+    }
     public String getLogServiceData(String cadena) throws IOException {
         System.out.println("Cadenaaaaaa"+cadena);
-        String apiURL = "http://localhost:4567/log?cadena="+cadena;
+        String round = roundRobin.getIp();
+        System.out.println("This is my round:  "+round);
+        String apiURL = round +"/log?cadena="+cadena;
+
         URL obj = new URL(apiURL);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
 
-        //The following invocation perform the connection implicitly before getting the code
+        //The following invocation perform the com.eci.round.connection implicitly before getting the code
         int responseCode = con.getResponseCode();
         System.out.println("GET Response Code :: " + responseCode);
 
